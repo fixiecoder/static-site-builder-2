@@ -40,7 +40,7 @@ function setScript(search = '// REPLACE_ME') {
 }
 
 const options = {
-  batch : ['src/templates/partials', 'src/templates/scripts'],
+  batch : ['src/templates/partials', 'dist/partial-scripts'],
   helpers : {
     cacheBuster : (str) => {
       return cacheBust;

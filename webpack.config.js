@@ -14,7 +14,7 @@ module.exports = {
   entry: entries,
   mode: 'production',
   output: {
-    filename: '[name].handlebars',
-    path: `${path.resolve(__dirname, 'src/templates/scripts')}`,
+    filename: '[name].js',
+    path: `${path.resolve(__dirname, 'dist/partial-scripts')}`,
   }
 }
