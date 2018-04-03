@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "rename-scripts": "node scripts/rename-script-extensions.js",
-    "build": "npm run build:js && npm run rename-scripts && npm run build:sass && npm run build:html",
+    "build": "npm run build:js && npm run build:sass",
     "clean": "rm -rf dist",
-    "dev": "npm run clean && npm run build && simplehttpserver -p 9999 dist/home & npm-run-all --parallel watch:**",
-    "build:js": "webpack",
-    "build:html": "gulp templates",
-    "build:sass": "node-sass src/styles/main.scss | postcss -u autoprefixer > 'dist/home/styles.css'",
+    "dev": "npm run clean && npm run devserver:start & npm run build && npm-run-all --parallel watch:**",
+    "devserver:start": "node ./scripts/dev-server.js",
+    "devserver:reload": "node ./scripts/reload",
+    "build:js": "webpack && npm run rename-scripts && npm run build:html",
+    "build:html": "gulp templates && npm run devserver:reload",
+    "build:sass": "node-sass src/styles/main.scss | postcss -u autoprefixer > 'dist/home/styles.css' && npm run devserver:reload",
     "watch:html": "chokidar 'src/templates/**/*.handlebars' -c 'npm run build:html'",
     "watch:js": "chokidar 'src/js/**/*.js' -c 'npm run build:js'",
     "watch:sass": "chokidar 'src/styles/**/*.scss' -c 'npm run build:sass'",
@@ -34,7 +36,8 @@
     "replacestream": "^4.0.3",
     "through2": "^2.0.3",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack-cli": "^2.0.13",
+    "ws": "^5.1.1"
   },
   "dependencies": {
     "gulp-babel": "^7.0.1"
