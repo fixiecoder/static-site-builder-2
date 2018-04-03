@@ -16,7 +16,7 @@
     "watch:html": "chokidar 'src/templates/**/*.handlebars' -c 'npm run build:html'",
     "watch:js": "chokidar 'src/js/**/*.js' -c 'npm run build:js'",
     "watch:sass": "chokidar 'src/styles/**/*.scss' -c 'npm run build:sass'",
-    "start": "webpack",
+    "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

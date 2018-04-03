@@ -9,7 +9,10 @@ var rs = require('replacestream');
 const data = require('./data.json');
 
 const cacheBust = Date.now().toString(16);
-    
+const env = 'dev';
+
+let devServerScript = env === 'dev' ? `<script>{{> dev-server-script}}</script></body>` : '';
+
 function setScript(search = '// REPLACE_ME') {
   function parsePath(_path) {
     var extname = path.extname(_path);
@@ -32,8 +35,10 @@ function setScript(search = '// REPLACE_ME') {
 
     if (file.isStream()) {
       file.contents = file.contents.pipe(rs(search, replacement));
+      file.contents = file.contents.pipe(rs(search, replacement));
     } else if (file.isBuffer()) {
       file.contents = new Buffer(String(file.contents).replace(search, replacement));
+      file.contents = new Buffer(String(file.contents).replace('</body>', devServerScript));
     }
     callback(null, file);
   });
