@@ -9,9 +9,11 @@ var rs = require('replacestream');
 const data = require('./data.json');
 
 const cacheBust = Date.now().toString(16);
-const env = 'dev';
+const env = process.env.buildEnv || 'production';
 
-let devServerScript = env === 'dev' ? `<script>{{> dev-server-script}}</script></body>` : '';
+console.log(env)
+
+let devServerScript = env === 'development' ? `<script>{{> dev-server-script}}</script></body>` : '';
 
 function setScript(search = '// REPLACE_ME') {
   function parsePath(_path) {

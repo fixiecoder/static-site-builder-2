@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "stop": "sh ./scripts/kill-devsever.sh > /dev/null",
     "rename-scripts": "node scripts/rename-script-extensions.js",
     "build": "npm run build:js && npm run build:sass",
     "clean": "rm -rf dist",
@@ -12,11 +13,11 @@
     "devserver:reload": "node ./scripts/reload",
     "build:js": "webpack && npm run rename-scripts && npm run build:html",
     "build:html": "gulp templates && npm run devserver:reload",
-    "build:sass": "node-sass src/styles/main.scss | postcss -u autoprefixer > 'dist/home/styles.css' && npm run devserver:reload",
+    "build:sass": "node-sass src/styles/main.scss | postcss -u autoprefixer > 'dist/root/styles.css' && npm run devserver:reload",
     "watch:html": "chokidar 'src/templates/**/*.handlebars' -c 'npm run build:html'",
     "watch:js": "chokidar 'src/js/**/*.js' -c 'npm run build:js'",
     "watch:sass": "chokidar 'src/styles/**/*.scss' -c 'npm run build:sass'",
-    "start": "npm run dev",
+    "start": "npm stop && export buildEnv=development && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -3,6 +3,7 @@ const fs = require('fs');
 const url = require('url');
 const WebSocket = require('ws');
  
+process.title = 'colin-dev-server';
 
 const server = http.createServer((req, res) => {
   if(req.url === '/status') {
@@ -13,7 +14,7 @@ const server = http.createServer((req, res) => {
     res.end();
   } else if(req.url !== '/favicon.ico') {
     res.setHeader('Content-Type', 'text/html');
-    let path = `${__dirname}/../dist/home/${req.url}`;
+    let path = `${__dirname}/../dist/root/${req.url}`;
     if(req.url === '/styles.css') {
       res.setHeader('Content-Type', 'text/css');
     }
@@ -46,3 +47,4 @@ function reloadContent() {
 }
 
 server.listen(8888);
+
