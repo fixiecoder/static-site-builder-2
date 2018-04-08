@@ -8,7 +8,6 @@ connect();
 
 function reconnect(attempt = 1) {
   if(attempt === 10) {
-    console.log('hererere')
     window.location.reload(true);
     return;
   }
@@ -22,7 +21,6 @@ function reconnect(attempt = 1) {
         }
       })
       .catch(e => {
-        console.warn('no connect');
         reconnect(attempt += 1);
       });
   }, 200 * attempt);
@@ -35,7 +33,7 @@ socket.onmessage = (message) => {
 };
 
 socket.onopen = () => {
-  console.log('connection status:', 'connection successful');
+  console.log('dev-server: connected');
 };
 
 socket.onclose = () => reconnect();
