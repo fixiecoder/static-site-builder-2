@@ -1,0 +1,5 @@
+#!/bin/bash
+
+jsdoc -X ./node_modules/utc-date/src/index.js > "$(pwd)/src/templates/data/raw-data.json"
+
+node "$(pwd)/src/templates/data/map-data.js"

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "template-data": "sh ./src/templates/data/get-data",
     "stop": "sh ./scripts/kill-devsever.sh > /dev/null",
     "rename-scripts": "node scripts/rename-script-extensions.js",
     "build": "npm run build:js && npm run build:sass",
@@ -17,7 +18,7 @@
     "watch:html": "chokidar 'src/templates/**/*.handlebars' -c 'npm run build:html'",
     "watch:js": "chokidar 'src/js/**/*.js' -c 'npm run build:js'",
     "watch:sass": "chokidar 'src/styles/**/*.scss' -c 'npm run build:sass'",
-    "start": "npm stop && export buildEnv=development && npm run dev",
+    "start": "npm stop && npm run template-data && export buildEnv=development && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -31,11 +32,14 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "handlebars-loader": "^1.7.0",
+    "jsdoc": "^3.5.5",
+    "node-fetch": "^2.1.2",
     "node-sass": "^4.8.3",
     "npm-run-all": "^4.1.2",
     "postcss-cli": "^5.0.0",
     "replacestream": "^4.0.3",
     "through2": "^2.0.3",
+    "utc-date": "file:../utc-date",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
     "ws": "^5.1.1"

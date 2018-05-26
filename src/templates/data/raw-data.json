@@ -1,0 +1,87 @@
+[
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                6,
+                43
+            ],
+            "filename": "index.js",
+            "lineno": 1,
+            "columnno": 6,
+            "path": "/Users/colinadams/my-dev/static-site-builder-2/node_modules/utc-date/src",
+            "code": {
+                "id": "astnode100000003",
+                "name": "UTCDate",
+                "type": "CallExpression",
+                "value": ""
+            }
+        },
+        "undocumented": true,
+        "name": "UTCDate",
+        "longname": "UTCDate",
+        "kind": "constant",
+        "scope": "global",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                46,
+                105
+            ],
+            "filename": "index.js",
+            "lineno": 3,
+            "columnno": 0,
+            "path": "/Users/colinadams/my-dev/static-site-builder-2/node_modules/utc-date/src",
+            "code": {
+                "id": "astnode100000008",
+                "name": "immutc",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "args"
+                ]
+            }
+        },
+        "undocumented": true,
+        "name": "immutc",
+        "longname": "immutc",
+        "kind": "function",
+        "scope": "global",
+        "params": []
+    },
+    {
+        "comment": "",
+        "meta": {
+            "range": [
+                107,
+                130
+            ],
+            "filename": "index.js",
+            "lineno": 7,
+            "columnno": 0,
+            "path": "/Users/colinadams/my-dev/static-site-builder-2/node_modules/utc-date/src",
+            "code": {
+                "id": "astnode100000019",
+                "name": "module.exports",
+                "type": "Identifier",
+                "value": "immutc",
+                "paramnames": []
+            }
+        },
+        "undocumented": true,
+        "name": "exports",
+        "longname": "module.exports",
+        "kind": "member",
+        "memberof": "module",
+        "scope": "static"
+    },
+    {
+        "kind": "package",
+        "longname": "package:undefined",
+        "files": [
+            "/Users/colinadams/my-dev/static-site-builder-2/node_modules/utc-date/src/index.js"
+        ]
+    }
+]

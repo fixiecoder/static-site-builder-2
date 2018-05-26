@@ -6,7 +6,9 @@ var replace = require('gulp-replace');
 var through = require('through2');
 const path = require('path');
 var rs = require('replacestream');
-const data = require('./data.json');
+const data = require('./src/templates/data/data.json');
+
+console.log(data)
 
 const cacheBust = Date.now().toString(16);
 const env = process.env.buildEnv || 'production';
@@ -67,7 +69,7 @@ gulp.task('clean', () => {
 gulp.task('templates', () => {
   return gulp.src('src/templates/pages/**/*.handlebars')
     .pipe(setScript())
-    .pipe(handlebars(data, options))
+    .pipe(handlebars({data}, options))
     .pipe(rename(path => {
       path.extname = '.html';
       path.dirname = path.dirname;
